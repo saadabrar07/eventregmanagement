@@ -1,0 +1,80 @@
+/* ------------- CSS RESET (tiny) ------------------- */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+/* ------------- Root Variables --------------------- */
+:root{
+    --bg:            #f4f7fe;
+    --card-bg:       #ffffff;
+    --primary:       #3b82f6;  /* blue‑500 */
+    --primary-dark:  #2563eb;  /* blue‑600 */
+    --text:          #1f2937;  /* gray‑800 */
+    --muted:         #6b7280;  /* gray‑500 */
+    --radius:        14px;
+    --shadow:        0 4px 18px rgba(0,0,0,.07);
+    --transition:    .25s cubic-bezier(.4,0,.2,1);
+    font-family: 'Inter', system-ui, sans-serif;
+}
+
+/* ------------- Layout Helpers --------------------- */
+body{background:var(--bg);color:var(--text);min-height:100vh;display:flex;flex-direction:column}
+
+/* Header */
+.header{padding:24px 5vw;text-align:center}
+.brand{font-size:clamp(1.4rem,3vw,2rem);font-weight:600}
+.brand span{color:var(--primary)}
+
+/* Container */
+.container{flex:1;display:flex;align-items:center;justify-content:center;padding:40px 5vw}
+
+/* Grid */
+.grid{display:grid;gap:32px;width:100%;max-width:1000px;
+      grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+
+/* Card */
+.card{
+    background:var(--card-bg);
+    padding:28px 24px;
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    text-align:center;
+    display:flex;
+    flex-direction:column;
+    gap:18px;
+    transition:transform var(--transition),box-shadow var(--transition);
+}
+.card:hover{transform:translateY(-6px);box-shadow:0 6px 24px rgba(0,0,0,.08)}
+.card h2{font-size:1.15rem;font-weight:600}
+
+/* Buttons */
+a.btn,a.btn-outline{
+    text-decoration:none;
+    display:block;
+    padding:10px 14px;
+    border-radius:var(--radius);
+    font-size:.92rem;
+    font-weight:500;
+    transition:background var(--transition),color var(--transition),box-shadow var(--transition);
+}
+a.btn{
+    background:var(--primary);
+    color:#fff;
+}
+a.btn:hover{background:var(--primary-dark)}
+a.btn-outline{
+    background:#f9fafb;
+    color:var(--muted);
+    border:1px solid #e5e7eb;
+}
+a.btn-outline:hover{
+    background:#eef2ff;
+    color:var(--primary-dark);
+    border-color:#c7d2fe;
+}
+
+/* Footer */
+.footer{
+    padding:14px 5vw;
+    text-align:center;
+    font-size:.85rem;
+    color:var(--muted);
+}
